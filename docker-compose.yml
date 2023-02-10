@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+      args:
+        - SSL_CERT=${SSL_CERT}
+        - SSL_KEY=${SSL_KEY}
+          SERV_NAME=${SERV_NAME}
+    ports:
+      - 443:443
+    extra_hosts:
+        - "jvigneau.42.fr:127.0.0.1"
+    env_file:
+      .env
+    networks:
+        - jvigneau
+    restart: always
+
+networks:
+  jvigneau :
+    driver: bridge
