@@ -9,18 +9,18 @@ services:
     volumes:
       - volume-mariadb:/var/lib/mysql
     networks:
-      - jvigneau
-      env_file:
-        - .env
+      - inception
+    env_file:
+      - .env
 
   wordpress:
-    container_name: wordpress
+    container_name: wp
     build: ./requirements/wordpress
     restart: always
     volumes:
       - volume-wordpress:/var/www/html
     networks:
-      - jvigneau
+      - inception
     depends_on:
       - mariadb
     env_file:
@@ -31,20 +31,18 @@ services:
     build: ./requirements/nginx
     ports:
       - 443:443
+    restart: always
     volumes:
       - volume-wordpress:/var/www/html
-    extra_hosts:
-        - "jvigneau.42.fr:127.0.0.1"
-    env_file:
-      .env
+    networks:
+      - inception
     depends_on:
       - wordpress
-    networks:
-        - jvigneau
-    restart: always
+    env_file:
+      - .env
 
 networks:
-  jvigneau :
+  inception:
     driver: bridge
 
 volumes:
@@ -53,11 +51,11 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/jvigneau/data/mariadb
+      device: /home/mmondell/data/mariadb
 
   volume-wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/jvigneau/data/wordpress
+      device: /home/mmondell/data/wordpress
