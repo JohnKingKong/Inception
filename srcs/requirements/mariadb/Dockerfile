@@ -1,5 +1,7 @@
 FROM alpine:3.15
 
+RUN apk update && apk upgrade
+
 RUN apk add --update mariadb mariadb-common mariadb-client mariadb-server-utils gettext bash
 
 RUN rm -f /etc/my.cnf
