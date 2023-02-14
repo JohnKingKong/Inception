@@ -10,7 +10,7 @@ RUN mkdir -p /var/www /run/php-mysql
 COPY ./tools/curlTheStuff.sh ./
 COPY ./conf/www.conf ./
 
-RUN chmod +x setUpWordpress.sh
+RUN chmod +x curlTheStuff.sh
 
 RUN adduser -D jvigneau
 
