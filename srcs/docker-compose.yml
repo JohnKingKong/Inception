@@ -9,18 +9,18 @@ services:
     volumes:
       - volume-mariadb:/var/lib/mysql
     networks:
-      - inception
-    env_file:
-      - .env
+      - jvigneau
+      env_file:
+        - .env
 
   wordpress:
-    container_name: wp
+    container_name: wordpress
     build: ./requirements/wordpress
     restart: always
     volumes:
       - volume-wordpress:/var/www/html
     networks:
-      - inception
+      - jvigneau
     depends_on:
       - mariadb
     env_file:
@@ -34,15 +34,15 @@ services:
     restart: always
     volumes:
       - volume-wordpress:/var/www/html
-    networks:
-      - inception
+    env_file:
+      .env
     depends_on:
       - wordpress
-    env_file:
-      - .env
+    networks:
+        - jvigneau
 
 networks:
-  inception:
+  jvigneau :
     driver: bridge
 
 volumes:
@@ -51,11 +51,11 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/mmondell/data/mariadb
+      device: /home/jvigneau/data/mariadb
 
   volume-wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/mmondell/data/wordpress
+      device: /home/jvigneau/data/wordpress
