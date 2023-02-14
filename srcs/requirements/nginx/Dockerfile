@@ -1,8 +1,7 @@
-FROM	debian:buster
+FROM	alpine:3.15
 
-RUN		apt-get update && \
-		apt-get install -y nginx openssl && \
-		apt-get upgrade
+RUN		apk update && apk upgrade && \
+		apk add nginx openssl
 
 RUN		mkdir /etc/nginx/ssl
 RUN		mkdir -p /var/www/html

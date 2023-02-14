@@ -1,7 +1,6 @@
-FROM debian:buster
+FROM alpine:3.15
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-	mariadb-common mariadb-server mariadb-client gettext bash
+RUN apk add --update mariadb mariadb-common mariadb-client mariadb-server-utils gettext bash
 
 COPY conf/my.cnf /etc/my.cnf
 COPY conf/my.cnf /etc/mysql./my.cnf
