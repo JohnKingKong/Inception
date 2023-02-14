@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./requirements/nginx
+    ports:
+      - 443:443
+    extra_hosts:
+        - "jvigneau.42.fr:127.0.0.1"
+    env_file:
+      .env
+    networks:
+        - jvigneau
+    restart: always
+
+networks:
+  jvigneau :
+    driver: bridge
