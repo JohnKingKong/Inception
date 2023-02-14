@@ -12,7 +12,7 @@ RUN mkdir -p /etc/ssl/certs
 
 RUN		openssl req -x509 -nodes -sha256 -days 365 -newkey rsa:4096 \
 			-subj "/C=CA/ST=Quebec/L=Quebec City/O=42School/OU=42Quebec/CN=jvigneau.42.fr" \
-			-keyout /etc/nginx/ssl/private/nginx_key.key -out /etc/nginx/ssl/certs/nginx_cert.crt
+			-keyout /etc/ssl/private/nginx_key.key -out /etc/ssl/certs/nginx_cert.crt
 
 EXPOSE	443
 
