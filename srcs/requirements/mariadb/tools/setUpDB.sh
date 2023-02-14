@@ -29,7 +29,7 @@ else
 
 	echo "PRIVILEGES FLUSHED"
 
-	touch /home/jvigneau/data/mariadb/success
+	sudo touch /home/jvigneau/data/mariadb/success
 	pkill mysqld
 
 fi
