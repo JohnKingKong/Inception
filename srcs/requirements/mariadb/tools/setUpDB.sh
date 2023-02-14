@@ -1,6 +1,6 @@
 FILE=/home/jvigneau/data/mariadb/success
 
-if test -f "/home/jvigneau/data/mariadb/success" ; then
+if [ ! -f "/home/jvigneau/data/mariadb/success" ] ; then
 	echo "DATABASE ALREADY SET UP"
 else
 	echo "DB Setting up"
