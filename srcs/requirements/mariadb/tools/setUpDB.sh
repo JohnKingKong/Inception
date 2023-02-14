@@ -1,4 +1,4 @@
-FILE=/home/jvigneau/data/mariadb/success
+#!/bin/sh
 
 if [ -f "/home/jvigneau/data/mariadb/success" ] ; then
 	echo "DATABASE ALREADY SET UP"
@@ -29,7 +29,6 @@ else
 
 	echo "PRIVILEGES FLUSHED"
 
-	sudo touch /home/jvigneau/data/mariadb/success
 	pkill mysqld
 
 fi
