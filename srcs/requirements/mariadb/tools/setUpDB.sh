@@ -1,3 +1,4 @@
+FILE=/home/jvigneau/data/mariadb/success
 
 if test -f "/home/jvigneau/data/mariadb/success"; then
 	echo "DB already set up"
@@ -6,7 +7,8 @@ else
 	echo "Setting up the DB"
 	mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
-	mysqld --user=mysql --datadir=/var/lib/mysql
+	mysqld --user=mysql --datadir=/var/lib/mysql &
+	sleep 5
 
 	mysql -e "CREATE DATABASE IF NOT EXISTS ${WP_DB};"
 	echo "DB created"
