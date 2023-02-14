@@ -2,8 +2,11 @@ FROM alpine:3.15
 
 RUN apk add --update mariadb mariadb-common mariadb-client mariadb-server-utils gettext bash
 
+RUN rm -f /etc/my.cnf
 COPY conf/my.cnf /etc/my.cnf
-COPY conf/my.cnf /etc/mysql./my.cnf
+
+RUN rm -f /etc/my.cnf.d/my.cnf
+COPY conf/my.cnf /etc/mysql/my.cnf
 
 RUN mkdir -p tools/
 COPY tools/setUpDB.sh tools/setUpDB.sh
