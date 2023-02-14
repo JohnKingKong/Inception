@@ -21,7 +21,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	fi
 
 	wp config create --allow-root \
-		--dbname=$WPL_DB \
+		--dbname=$WP_DB \
 		--dbuser=$DB_USER \
 		--dbpass=$DB_USERPASS \
 		--dbhost=$DB_SERV \

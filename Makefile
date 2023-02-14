@@ -6,7 +6,7 @@
 #    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:31:20 by anonymous         #+#    #+#              #
-#    Updated: 2023/02/14 13:33:44 by anonymous        ###   ########.fr        #
+#    Updated: 2023/02/14 13:42:12 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 all:
 	@mkdir -p /home/jvigneau/data/mariadb
 	@mkdir -p /home/jvigneau/data/wordpress
-	pwd
 
 	@docker-compose -f srcs/docker-compose.yml up --build
 
