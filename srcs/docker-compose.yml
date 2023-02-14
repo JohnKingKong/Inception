@@ -3,8 +3,7 @@ version: '3.3'
 services:
   mariadb:
     container_name: mariadb
-    build:
-      context: ./requirements/mariadb
+    build: ./requirements/mariadb
     hostname: mariadb
     restart: always
     volumes:
@@ -16,8 +15,7 @@ services:
 
   wordpress:
     container_name: wordpress
-    build:
-      context: ./requirements/wordpress
+    build: ./requirements/wordpress
     restart: always
     volumes:
       - volume-wordpress:/var/www/html
@@ -30,14 +28,13 @@ services:
 
   nginx:
     container_name: nginx
-    build: 
-      context: ./requirements/nginx
+    build: ./requirements/nginx
     ports:
       - 443:443
     volumes:
       - volume-wordpress:/var/www/html
-    extra_hosts:
-        - "jvigneau.42.fr:127.0.0.1"
+    # extra_hosts:
+    #     - "jvigneau.42.fr:127.0.0.1"
     env_file:
       .env
     depends_on:

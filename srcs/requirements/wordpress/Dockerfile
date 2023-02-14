@@ -1,5 +1,7 @@
 FROM alpine:3.15
 
+EXPOSE 9000
+
 RUN apk update && apk upgrade && \
 	apk add --update \
 	php7 php7-fpm php7-opcache php7-mysqli php7-session php7-iconv php7-json \
@@ -7,12 +9,10 @@ RUN apk update && apk upgrade && \
 	php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-redis php7-gettext php7-ldap \
 	php7-ctype php7-dom php7-phar curl bash mariadb-client
 
-RUN mkdir -p /var/www /run/php-mysql
+COPY ./tools/* ./
+COPY ./conf/* ./
 
-COPY ./tools/curlTheStuff.sh ./
-COPY ./conf/www.conf ./
-
-RUN chmod +x curlTheStuff.sh
+RUN chmod +x setup.sh
 
 RUN adduser -D jvigneau
 
@@ -24,8 +24,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv -f wp-cli.phar /usr/local/bin/wp
 
-EXPOSE 9000
 
-ENTRYPOINT ["bash", "./curlTheStuff.sh"]
+ENTRYPOINT ["bash", "setup.sh"]
 
 CMD ["php-fpm7", "-F"]

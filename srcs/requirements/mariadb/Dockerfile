@@ -25,6 +25,6 @@ RUN chown -R mysql:mysql /run/mysqld
 
 EXPOSE 3306
 
-ENTRYPOINT ["bash", "./tools/setUpDB.sh"]
+ENTRYPOINT ["bash", "tools/setUpDB.sh"]
 
 CMD ["mysqld"]
