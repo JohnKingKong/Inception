@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-	mariadb mariadb-common mariadb-server-utils mariadb-client gettext bash
+	mariadb-common mariadb-server-utils mariadb-client gettext bash
 
 COPY conf/my.cnf /etc/my.cnf
 COPY conf/my.cnf /etc/mysql./my.cnf
