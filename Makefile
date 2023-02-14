@@ -6,7 +6,7 @@
 #    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 14:31:20 by anonymous         #+#    #+#              #
-#    Updated: 2023/02/14 12:17:17 by anonymous        ###   ########.fr        #
+#    Updated: 2023/02/14 13:32:46 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ build:
 clean:
 	rm -rf /home/jvigneau/data/mariadb
 	rm -rf /home/jvigneau/data/wordpress
-	@docker-compose scrs/docker-compose.yml down --rmi all
+	@docker-compose -f scrs/docker-compose.yml down --rmi all
 
 clean-volume:
 	@docker volume rm $(shell docker volume ls -q)
