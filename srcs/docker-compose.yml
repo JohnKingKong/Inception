@@ -18,15 +18,15 @@ services:
     container_name: wordpress
     build:
       context: ./requirements/wordpress
-      restart: always
-      volumes:
-        - volume-wordpress:/var/www/html
-      networks:
-        - jvigneau
-      depends_on:
-        - mariadb
-      env_file:
-        - .env
+    restart: always
+    volumes:
+      - volume-wordpress:/var/www/html
+    networks:
+      - jvigneau
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
 
   nginx:
     container_name: nginx
