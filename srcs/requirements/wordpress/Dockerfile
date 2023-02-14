@@ -1,6 +1,6 @@
 FROM alpine:3.15
 
-RUN apk update && apk upgrade -y && \
+RUN apk update && apk upgrade && \
 	apk add --update \
 	php7 php7-fpm php7-opcache php7-mysqli php7-session php7-iconv php7-json \
 	php7-gd php7-curl php7-xml php7-common php7-imap php7-cgi php7-pdo php7-pdo_mysql \
