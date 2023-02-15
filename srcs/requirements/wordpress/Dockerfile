@@ -3,17 +3,17 @@ FROM			alpine:3.16
 RUN				echo >> /etc/apk/repositeries "http://dl-cdn.alpinelinux.org/alpine/v3.8/community"
 RUN				echo >> /etc/apk/repositeries "http://dl-cdn.alpinelinux.org/alpine/edge/community"
 RUN				apk update && apk upgrade && \
-				apk adduser php7 php7-fpm php7-opcache php7-mysqli php7-session php7-iconv php7-json \
-				php7-gd php7-curl php7-xml php7-common php7-imap php7-cgi php7-pdo php7-pdo_mysql \
-				php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-redis php7-gettext php7-ldap \
-				php7-ctype php7-dom php7-phar curl bash mariadb-client
+				apk add php8 php8-fpm php8-opcache php8-mysqli php8-session php8-iconv php8-json \
+				php8-gd php8-curl php8-xml php8-common php8-imap php8-cgi php8-pdo php8-pdo_mysql \
+				php8-soap php8-xmlrpc php8-posix php8-mcrypt php8-redis php8-gettext php8-ldap \
+				php8-ctype php8-dom php8-phar curl bash mariadb-client
 
 COPY			./tools/setupWordpress.sh ./setupWordpress.sh
 RUN				chmod +x setupWordpress.sh
 
 COPY			./conf/www.conf ./www.conf
 
-RUN adduser -D jvigneau
+RUN				adduser -D jvigneau
 
 RUN mkdir -p /var/www/html
 RUN chmod 777 -R /var/www/html
