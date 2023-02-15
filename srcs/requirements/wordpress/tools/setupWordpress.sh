@@ -3,8 +3,6 @@
 set -exo pipefail
 
 if [ ! -f "/var/www/html/wp-config.php" ]; then
-	wp core download --allow-root --path="/var/www/html"
-
 	rm -f /var/www/html/wp-config.php8
 	rm -f /var/www/html/wp-config.php
 	rm -f /etc/php8/php-fpm.d/www.conf
