@@ -48,14 +48,14 @@ networks:
 volumes:
   volume-mariadb:
     driver: local
-    diver_opts:
+    driver_opts:
       type: 'none'
       o: 'bind'
       device: /home/jvigneau/data/mariadb
 
   volumes-wordpress:
     driver: local
-    diver_opts:
+    driver_opts:
       type: 'none'
       o: 'bind'
       device: /home/jvigneau/data/wordpress
