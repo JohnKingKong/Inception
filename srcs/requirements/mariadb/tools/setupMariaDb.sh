@@ -1,4 +1,4 @@
-if [ ! -f "/home/jvigneau/data/mariadb/a" ]; then
+if [ -f "/home/jvigneau/data/mariadb/a" ]; then
 	echo "DB is already set up"
 	exec $@
 else
