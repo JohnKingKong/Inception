@@ -27,4 +27,4 @@ EXPOSE 9000
 
 ENTRYPOINT ["bash", "setupWordpress.sh"]
 
-CMD ["php-fpm7", "-F"]
+CMD ["php-fpm8", "-F"]
