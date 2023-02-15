@@ -1,6 +1,6 @@
 FROM			alpine:3.16
 
-RUN				apk udpdate && apk upgrade && \
+RUN				apk update && apk upgrade && \
 					apk add --update mariadb mariadb-common mariadb-client mariadb-server-utils gettext bash
 
 RUN				rm -rf /etc/my.cnf
