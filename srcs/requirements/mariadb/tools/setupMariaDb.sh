@@ -3,7 +3,7 @@ if [ -f "/home/jvigneau/data/mariadb/a" ]; then
 	exec $@
 else
 	echo "Setting up the DB"
-	mysql_install_db --user=mysql --basedir=/usr/ --datadir=/var/lib/mysql
+	mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
 	mysqld --user=mysql --datadir=/var/lib/mysql &
 	sleep 5
