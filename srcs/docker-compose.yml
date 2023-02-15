@@ -53,7 +53,7 @@ volumes:
       o: 'bind'
       device: /home/jvigneau/data/mariadb
 
-  volumes-wordpress:
+  volume-wordpress:
     driver: local
     driver_opts:
       type: 'none'
