@@ -23,7 +23,7 @@ else
 	mysql -u root -p${DB_ROOTPASS} -e "FLUSH PRIVILEGES;"
 	echo "Privileges have been flushed"
 
-	touch "a"
+	sudo touch "a"
 	pkill mysqld
 
 	exec $@
