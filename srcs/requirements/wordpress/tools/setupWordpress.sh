@@ -5,13 +5,13 @@ set -exo pipefail
 if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp core download --allow-root --path="/var/www/html"
 
-	rm -f /var/www/html/wp-config.php7
+	rm -f /var/www/html/wp-config.php8
 	rm -f /var/www/html/wp-config.php
-	rm -f /etc/php7/php-fpm.d/www.conf
+	rm -f /etc/php8/php-fpm.d/www.conf
 
-	cp ./www.conf /etc/php7/php-fpm.d/www.conf
+	cp ./www.conf /etc/php8/php-fpm.d/www.conf
 
-	if [ "$1" = "php-fpm7" ]; then
+	if [ "$1" = "php-fpm8" ]; then
 		for i in {0..42}; do
 			if mariadb -h$DB_SERVER -u$DB_USER -p$DB_USERPASS --database=$WORDPRESS_DB <<< 'SELECT 1;' &> /dev/null; then
 				break
