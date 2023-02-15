@@ -1,4 +1,4 @@
-if [ -f "/home/jvigneau/data/mariadb/a" ]; then
+if [ -f "a" ]; then
 	echo "DB is already set up"
 	exec $@
 else
@@ -23,7 +23,7 @@ else
 	mysql -u root -p${DB_ROOTPASS} -e "FLUSH PRIVILEGES;"
 	echo "Privileges have been flushed"
 
-	touch "/home/jvigneau/data/mariadb/a"
+	touch "a"
 	pkill mysqld
 
 	exec $@
