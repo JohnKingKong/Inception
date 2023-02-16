@@ -12,6 +12,8 @@ services:
       - Inception
     env_file:
       - .env
+    extra_hosts:
+      - "jvigneau.42.fr:127.0.0.1
 
   wordpress:
     container_name: wp
@@ -25,6 +27,8 @@ services:
       - mariadb
     env_file:
       - .env
+    extra_hosts:
+      - "jvigneau.42.fr:127.0.0.1
 
   nginx:
     container_name: nginx
