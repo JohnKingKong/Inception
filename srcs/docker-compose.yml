@@ -40,6 +40,8 @@ services:
       - wordpress
     env_file:
       - .env
+    extra-hosts:
+      - jvigneau.42.fr:localhost
 
 networks:
   Inception:
