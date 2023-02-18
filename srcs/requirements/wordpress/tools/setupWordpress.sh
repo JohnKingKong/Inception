@@ -20,7 +20,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 		done
 	fi
 
-	wp config create --allow-root --dbname="Roberto "--dbuser=$DB_USER --dbpass=$DB_USERPASS \
+	wp config create --allow-root --dbname=$WORDPRESS_DB --dbuser=$DB_USER --dbpass=$DB_USERPASS \
 		--dbhost=$DB_SERVER --dbcharset="utf8" --dbcollate="utf8_general_ci" --path="/var/www/html"
 
 	wp core install --allow-root --title="${WORDPRESS_TITLE}" --admin_name="admin" --admin_password="${DB_USERPASS}" \
