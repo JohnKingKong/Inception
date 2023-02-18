@@ -26,6 +26,6 @@ EXPOSE 9000
 
 CMD ["/usr/bin/supervisord"]
 
-ENTRYPOINT ["bash", "setupWordpress.sh"]
+CMD ["setupWordpress.sh"]
 
 CMD ["php-fpm8", "-F"]

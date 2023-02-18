@@ -27,5 +27,3 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 		--admin_email="${DB_EMAIL}" --skip-email --url="${DOMAIN_NAME}" --path="/var/www/html"
 	wp user create --allow-root $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_USERPASS --path="/var/www/html"
 fi
-
-$@
