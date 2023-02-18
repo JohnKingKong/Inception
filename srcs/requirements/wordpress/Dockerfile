@@ -1,7 +1,5 @@
 FROM			alpine:3.16
 
-RUN				echo >> /etc/apk/repositeries "http://dl-cdn.alpinelinux.org/alpine/v3.8/community"
-RUN				echo >> /etc/apk/repositeries "http://dl-cdn.alpinelinux.org/alpine/edge/community"
 RUN				apk update && apk upgrade && \
 				apk add php8 php8-fpm php8-opcache php8-mysqli php8-session php8-iconv php8-json \
 				php8-gd php8-curl php8-xml php8-common php8-imap php8-cgi php8-pdo php8-pdo_mysql \
@@ -28,6 +26,6 @@ EXPOSE 9000
 
 CMD ["/usr/bin/supervisord"]
 
-ENTRYPOINT ["bash", "setupWordpress.sh"]
+CMD ["bash", "setupWordpress.sh"]
 
 CMD ["php-fpm8", "-F"]
