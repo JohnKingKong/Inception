@@ -9,7 +9,6 @@ COPY			conf/my.cnf /etc/my.cnf
 RUN				rm -rf /etc/mysql/my.cnf
 COPY			conf/my.cnf /etc/mysql/my.cnf
 
-COPY			conf/setupDb.sql ./db_setup.sql
 COPY			tools/setupMariaDb.sh ./setupMariaDb.sh
 
 RUN				chmod +x setupMariaDb.sh
