@@ -24,7 +24,7 @@ RUN mv -f wp-cli.phar /usr/local/bin/wp
 
 EXPOSE 9000
 
-CMD ["/usr/bin/supervisord"]
+ENTRYPOINT ["/usr/bin/supervisord"]
 
 CMD ["setupWordpress.sh"]
 
