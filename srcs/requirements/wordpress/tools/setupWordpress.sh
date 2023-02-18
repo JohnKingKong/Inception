@@ -28,4 +28,4 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp user create --allow-root $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_USERPASS --path="/var/www/html"
 fi
 
-exec &@
+exec $@
