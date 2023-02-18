@@ -22,6 +22,6 @@ RUN				chown -R mysql:mysql /run/mysqld
 
 EXPOSE			3306
 
-CMD		["bash", "setupMariaDb.sh"]
+ENTRYPOINT		["bash", "setupMariaDb.sh"]
 
 CMD				["mysqld"]
