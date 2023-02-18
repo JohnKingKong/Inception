@@ -24,7 +24,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 		--dbhost=$DB_SERVER --dbcharset="utf8" --dbcollate="utf8_general_ci" --path="/var/www/html"
 
 	wp core install --allow-root --title="${WORDPRESS_TITLE}" --admin_name="admin" --admin_password="${DB_USERPASS}" \
-		--admin_email="${DB_EMAIL}" --skip-email --url="poilu.com" --path="/var/www/html"
+		--admin_email="${DB_EMAIL}" --skip-email --url="${DOMAIN_NAME}" --path="/var/www/html"
 	wp user create --allow-root $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_USERPASS --path="/var/www/html"
 fi
 
