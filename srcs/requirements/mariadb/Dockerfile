@@ -13,7 +13,7 @@ COPY			tools/setupMariaDb.sh ./setupMariaDb.sh
 
 RUN				chmod +x setupMariaDb.sh
 
-RUN				mkdir -p /run/mysqld /var/lib/mysql
+RUN				mkdir -p /run/mysqld /var/lib/mysql /var/log/mysql
 
 RUN				chmod 777 /var/lib/mysql
 RUN				chmod 777 /run/mysqld

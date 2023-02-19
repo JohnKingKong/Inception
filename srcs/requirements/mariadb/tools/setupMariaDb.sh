@@ -1,6 +1,5 @@
 if [ -f ".a" ]; then
 	echo "DB is already set up"
-	exec $@
 else
 	echo "Setting up the DB"
 	mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
@@ -26,5 +25,4 @@ else
 	touch ".a"
 	pkill mysqld
 
-	exec $@
 fi
