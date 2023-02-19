@@ -24,6 +24,6 @@ EXPOSE			3306
 
 ENTRYPOINT		["/usr/bin/dumb-init"]
 
-CMD				["bash", "setupMariaDb.sh"]
+CMD				["setupMariaDb.sh"]
 
 CMD				["mysqld"]
