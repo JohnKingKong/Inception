@@ -12,7 +12,7 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	cp ./www.conf /etc/php8/php-fpm.d/www.conf
 
 	for i in {0..42}; do
-		if mariadb -h$DB_SERVER -u$DB_USER -p$DB_USERPASS --database=$WORDPRESS_DB <<< 'SELECT 1;'; then
+		if mariadb -h$DB_SERVER -u$DB_USER -p$DB_USERPASS --database=$WORDPRESS_DB <<< 'SELECT 1;'&>/dev/null; then
 			break
 		fi
 		sleep 5
