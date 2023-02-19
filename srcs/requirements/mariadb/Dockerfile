@@ -17,6 +17,8 @@ RUN				mkdir -p /run/mysqld /var/lib/mysql /var/log/mysql
 
 RUN				chmod 777 /var/lib/mysql
 RUN				chmod 777 /run/mysqld
+RUN				chmod 777 /var/log/mysql
+RUN				chown -R mysql:mysql /var/log/mysql
 RUN				chown -R mysql:mysql /var/lib/mysql
 RUN				chown -R mysql:mysql /run/mysqld
 
