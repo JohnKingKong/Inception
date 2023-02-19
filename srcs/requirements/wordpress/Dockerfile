@@ -23,8 +23,6 @@ RUN mv -f wp-cli.phar /usr/local/bin/wp
 
 EXPOSE 9000
 
-ENTRYPOINT	["/usr/bin/dumb-init"]
+ENTRYPOINT	["/usr/bin/dumb-init", "--"]
 
-CMD			["bash", "exec setupWordpress.sh"]
-
-CMD			["bash", "php-fpm8", "-F"]
+CMD			["bash", "-c", "bash ./setupWordpress.sh && exec php-fpm8 -F"]
