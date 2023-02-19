@@ -27,4 +27,4 @@ ENTRYPOINT	["/usr/bin/dumb-init"]
 
 CMD			["bash", "setupWordpress.sh"]
 
-CMD			["bash", "php-fpm8", "-F"]
+CMD			["php-fpm8", "-F"]
