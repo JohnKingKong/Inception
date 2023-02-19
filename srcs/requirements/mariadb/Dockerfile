@@ -22,8 +22,8 @@ RUN				chown -R mysql:mysql /run/mysqld
 
 EXPOSE			3306
 
-ENTRYPOINT		["/usr/bin/dumb-init"]
+ENTRYPOINT		["/usr/bin/dumb-init", "--"]
 
-CMD				["setupMariaDb.sh"]
+CMD				["bash", "-c", " /setupMariaDb.sh"]
 
-CMD				["mysqld"]
+CMD				["exec mysqld"]
