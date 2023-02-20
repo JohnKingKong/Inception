@@ -1,6 +1,6 @@
 FROM		alpine:3.16
 
-RUN			apk update && apk upgrade && apk add nginx openssl
+RUN			apk update && apk upgrade && apk add nginx openssl dumb-init
 
 RUN			mkdir -p /var/www/html /etc/nginx/ssl/certificates /etc/nginx/ssl/keys
 
@@ -13,4 +13,6 @@ RUN			openssl req -newkey rsa:4096 -sha256 -x509 -nodes -days 365 \
 				-keyout /etc/nginx/ssl/keys/nginxSsl.key \
 				-subj "/C=CA/ST=Quebec/L=Quebec City/O=42School/OU=42Quebec/CN=jvigneau.42.fr"
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["dumb-init", "--"]
+
+CMD ["bash","-c", "exec nginx -g daemon off"]

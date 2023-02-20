@@ -25,4 +25,4 @@ EXPOSE 9000
 
 ENTRYPOINT	["/usr/bin/dumb-init", "--"]
 
-CMD			["bash", "-c", "./setupWordpress.sh && exec php-fpm8 -F"]
+CMD			["bash", "-c", "exec ./setupWordpress.sh && exec php-fpm8 -F"]
