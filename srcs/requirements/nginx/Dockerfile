@@ -15,4 +15,4 @@ RUN			openssl req -newkey rsa:4096 -sha256 -x509 -nodes -days 365 \
 
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["bash","-c", "exec nginx -g daemon off"]
+CMD ["bash","-c", "exec nginx -g daemon off;"]
