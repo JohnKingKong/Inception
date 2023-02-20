@@ -1,6 +1,6 @@
 #!bin/bash
 
-set -exo pipefail
+set -eo pipefail
 
 if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp core download --allow-root --path="/var/www/html"
@@ -24,6 +24,6 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp core install --allow-root --title="${WORDPRESS_TITLE}" --admin_name="${WORDPRESS_ADMIN}" --admin_password="${WORDPRESS_ADMINPASS}" \
 		--admin_email="${DB_EMAIL}" --skip-email --url="${DOMAIN_NAME}" --path="/var/www/html"
 	wp user create --allow-root $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_USERPASS --path="/var/www/html"
-	echo "\n\nCONGRATSSSS User created\n\n"
+	echo "CONGRATSSSS User created"
 fi
 
