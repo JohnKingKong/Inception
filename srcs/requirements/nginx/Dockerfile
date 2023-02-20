@@ -1,6 +1,6 @@
 FROM		alpine:3.16
 
-RUN			apk update && apk upgrade && apk add nginx openssl dumb-init
+RUN			apk update && apk upgrade && apk add nginx openssl dumb-init bash
 
 RUN			mkdir -p /var/www/html /etc/nginx/ssl/certificates /etc/nginx/ssl/keys
 
