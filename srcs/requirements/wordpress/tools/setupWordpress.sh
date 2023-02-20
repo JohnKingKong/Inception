@@ -24,6 +24,6 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp core install --allow-root --title="${WORDPRESS_TITLE}" --admin_name="${WORDPRESS_ADMIN}" --admin_password="${WORDPRESS_ADMINPASS}" \
 		--admin_email="${DB_EMAIL}" --skip-email --url="${DOMAIN_NAME}" --path="/var/www/html"
 	wp user create --allow-root $WORDPRESS_USER $WORDPRESS_EMAIL --role=author --user_pass=$WORDPRESS_USERPASS --path="/var/www/html"
-	echo "CONGRATSSSS User created"
+	echo "CONGRATSSSS All is good to go!"
 fi
 

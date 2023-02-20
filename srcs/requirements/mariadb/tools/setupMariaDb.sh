@@ -7,19 +7,19 @@ else
 	mysqld --user=mysql --datadir=/var/lib/mysql &
 	sleep 5
 
-	mysql -e "CREATE DATABASE IF NOT EXISTS ${WORDPRESS_DB};"
+	mysql -e "create database if not exists ${WORDPRESS_DB};"
 	echo "DB is created"
 
-	mysql -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_USERPASS}';"
+	mysql -e "create user if not exists '${DB_USER}'@'localhost' identified by '${DB_USERPASS}';"
 	echo "User ${DB_USER} created"
 
-	mysql -e "GRANT ALL PRIVILEGES ON \`${WORDPRESS_DB}\`.* TO \`${DB_USER}\`@'%' IDENTIFIED BY '${DB_USERPASS}';"
+	mysql -e "grant all privileges on \`${WORDPRESS_DB}\`.* to \`${DB_USER}\`@'%' identified by '${DB_USERPASS}';"
 	echo "Privileges have been granted"
 
-	mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOTPASS}';"
+	mysql -e "alter user 'root'@'localhost' identified by '${DB_ROOTPASS}';"
 	echo "Root password is now set"
 
-	mysql -u root -p${DB_ROOTPASS} -e "FLUSH PRIVILEGES;"
+	mysql -u root -p${DB_ROOTPASS} -e "flush privileges;"
 	echo "Privileges have been flushed"
 
 	touch ".a"
